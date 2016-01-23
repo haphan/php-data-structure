@@ -2,7 +2,7 @@
 
 namespace Haphan\InterviewPrep\Tests;
 
-class GeneralTest extends  \PHPUnit_Framework_TestCase
+class ProblemTest extends  \PHPUnit_Framework_TestCase
 {
     /**
      * @dataProvider mostFrequentUsedIntegerProvider
