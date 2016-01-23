@@ -61,10 +61,28 @@ function search_closest_smaller($array, $x)
 }
 
 /**
- * Find pairs in an integer array whose sum is equal to 10 (bonus: do it in linear time)
+ * Find pairs in an integer array whose sum is equal to K (bonus: do it in linear time)
+ * Also not accepting duplicated pair. E.g. [3,6] and [6,3] are consider 1 pair thus only appear once in the result
  */
-function find_pairs_int($array)
+function find_pairs_sum($array, $k)
 {
+    $hash = [];
+    $result = [];
+
+    foreach($array as $i => $v)
+    {
+        $hash[$v] = $i;
+    }
+
+    foreach($array as $i => $v)
+    {
+        if(isset($hash[$k - $v]) && $i != $hash[$k - $v] && $i < ($hash[$k - $v]))
+        {
+            $result[] = [$i, $hash[$k - $v]];
+        }
+    }
+
+    return $result;
 }
 
 

@@ -12,7 +12,7 @@ class ProblemTest extends  \PHPUnit_Framework_TestCase
         $this->assertEquals(most_frequent_integer($array), $result);
     }
 
-    function mostFrequentUsedIntegerProvider()
+    public function mostFrequentUsedIntegerProvider()
     {
         return [
             'happy case' => [
@@ -27,6 +27,31 @@ class ProblemTest extends  \PHPUnit_Framework_TestCase
             'not an array input should return -1' => [
                 'foobar', -1
             ]
+        ];
+    }
+
+
+    /**
+     * @dataProvider findPairSumProvider
+     */
+    public function testFindPairSum($array, $sum, $expectedResult)
+    {
+        $result = find_pairs_sum($array, $sum);
+        $this->assertEquals($result, $expectedResult);
+    }
+
+    public function findPairSumProvider()
+    {
+        return [
+            'happy case 1' => [
+                [5,5], 10, [[0,1]]
+            ],
+            'happy case 2' => [
+                [8,6,4,2], 10, [[0,3],[1,2]]
+            ],
+            'happy case 3' => [
+                [0,1,9,10,5,6], 15, [[2,5], [3,4]]
+            ],
         ];
     }
 }
